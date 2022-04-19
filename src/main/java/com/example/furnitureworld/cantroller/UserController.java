@@ -2,6 +2,7 @@ package com.example.furnitureworld.cantroller;
 
 import com.example.furnitureworld.entity.User;
 import com.example.furnitureworld.repository.UserRepository;
+import com.example.furnitureworld.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -13,17 +14,17 @@ import org.springframework.web.bind.annotation.PostMapping;
 @RequiredArgsConstructor
 public class UserController {
 
-    @Autowired
-    private UserRepository userRepository;
+    private final UserService userService;
+
 
     @GetMapping("/addUser")
     public String addUserPage() {
-        return "saveUser";
+        return "account";
     }
 
     @PostMapping("/addUser")
     public String addUser(@ModelAttribute User user) {
-        userRepository.save(user);
-        return "userPage";
+        userService.save(user);
+        return "account";
     }
 }

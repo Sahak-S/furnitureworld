@@ -37,13 +37,13 @@ public class ProductController {
     public String productPage(ModelMap map) {
         List<Product> products = productRepository.findAll();
         map.addAttribute("products", products);
-        return "productPage";
+         return "about";
     }
 
     @GetMapping("/product/add")
     public String addProduct(ModelMap map) {
         map.addAttribute("category", categoryRepository.findAll());
-        return "saveProduct";
+        return "shop";
     }
 
     @PostMapping("/product/add")
