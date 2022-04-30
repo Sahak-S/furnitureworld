@@ -19,7 +19,6 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
     private  UserDetailsService userDetails;
 
 
-
     @Override
     protected void configure(HttpSecurity http) throws Exception {
 
@@ -37,16 +36,11 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/").permitAll()
 
                 .antMatchers(HttpMethod.GET,"/addUser").permitAll()
+                .antMatchers(HttpMethod.POST,"/addUser").permitAll()
                 .antMatchers("/product").permitAll()
                 .antMatchers("/product/add").permitAll();
-//        http.csrf().disable()
-//                .authorizeRequests()
-//                .antMatchers(HttpMethod.GET,"/").permitAll()
-//                .antMatchers(HttpMethod.GET,"/addUser").permitAll()
-//                .antMatchers("/addUser").hasAnyRole(UserType.USER.name())
-//                .antMatchers("/product/add").hasAnyRole(UserType.ADMIN.name())
-//                .anyRequest()
-//                .authenticated();
+                //.antMatchers("/product/add").hasAuthority(UserType.ADMIN.name());
+//
     }
 
     @Override

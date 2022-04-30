@@ -17,13 +17,10 @@ public class CreditCart {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    private String owners;
-    private String cartnumber;
+    private String ownersName;
+    private String ownersSurname;
+    private String cartNumber;
+    private String cartCode;
 
-    @ManyToOne
-    private User user;
-
-    @ManyToOne
-    private Product product;
 
 }

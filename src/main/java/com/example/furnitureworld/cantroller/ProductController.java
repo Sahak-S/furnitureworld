@@ -1,8 +1,11 @@
 package com.example.furnitureworld.cantroller;
 
+import com.example.furnitureworld.entity.CreditCart;
 import com.example.furnitureworld.entity.Product;
 import com.example.furnitureworld.entity.ProductImage;
+import com.example.furnitureworld.entity.User;
 import com.example.furnitureworld.repository.CategoryRepository;
+import com.example.furnitureworld.repository.CreditCartRepository;
 import com.example.furnitureworld.repository.ProductImageRepository;
 import com.example.furnitureworld.repository.ProductRepository;
 import lombok.RequiredArgsConstructor;
@@ -21,6 +24,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class ProductController {
 
+
     @Autowired
     private ProductRepository productRepository;
 
@@ -37,13 +41,13 @@ public class ProductController {
     public String productPage(ModelMap map) {
         List<Product> products = productRepository.findAll();
         map.addAttribute("products", products);
-         return "about";
+        return "productPage";
     }
 
     @GetMapping("/product/add")
     public String addProduct(ModelMap map) {
         map.addAttribute("category", categoryRepository.findAll());
-        return "shop";
+        return "saveProduct";
     }
 
     @PostMapping("/product/add")
@@ -70,7 +74,7 @@ public class ProductController {
     public String singleProduct(@PathVariable int id, ModelMap map) {
         Product product = productRepository.findById(id).orElseThrow(RuntimeException::new);
 
-        map.addAttribute("category",categoryRepository.findAll());
+        map.addAttribute("category", categoryRepository.findAll());
         map.addAttribute("product", product);
         return "singleProduct";
     }
