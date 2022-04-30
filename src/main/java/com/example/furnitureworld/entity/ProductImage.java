@@ -1,7 +1,5 @@
 package com.example.furnitureworld.entity;
 
-import com.example.furnitureworld.entity.Product;
-import com.example.furnitureworld.entity.User;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -14,16 +12,17 @@ import javax.persistence.*;
 @NoArgsConstructor
 @Builder
 @Entity
-@Table(name = "basket")
-public class Basket {
+@Table(name = "product_images")
+public class ProductImage {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-
-    @ManyToOne
-    private User user;
+    private String name;
 
     @ManyToOne
     private Product product;
+
+
+
 }

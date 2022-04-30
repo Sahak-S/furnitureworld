@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Data
 @AllArgsConstructor
@@ -21,8 +22,10 @@ public class Product {
     private String name;
     private String description;
     private double price;
-    private String picUrl;
 
     @ManyToOne
     private Category category;
+
+    @OneToMany(mappedBy = "product")
+    private List<ProductImage> productImages;
 }
