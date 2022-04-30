@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Product page</title>
+</head>
+<body>
+
+<!--<div th:include="fragments/main-fragmetn::login"></div>-->
+
+<div>
+<!--    <a href="/product/add">Add product</a>-->
+<!--    Single Product:-->
+    <a href="/cart">Buy a product</a>
+    <div style="width: 205px; float: left">
+        <div>
+            <img th:if="${product.productImages == null || product.productImages.isEmpty()}" src="/img.png" width="100"
+                 height="100"/>
+
+            <ul th:if="${product.productImages != null && !product.productImages.isEmpty()}">
+                <li th:each="image:${product.productImages}"><img th:src="@{/getImage(picName=${image.name})}"
+                                                                  width="200" height="200"/></li>
+            </ul>
+
+
+        </div>
+        <div>
+            <span th:text="${product.name}"></span><span th:text="${product.price}"></span>
+        </div>
+        Category:
+        <div>
+            <span th:text="${product.category.name}"></span>
+        </div>
+    </div>
+
+
+</div>
+
+
+</body>
+</html>
