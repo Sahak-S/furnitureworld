@@ -1,11 +1,8 @@
 package com.example.furnitureworld.cantroller;
 
-import com.example.furnitureworld.entity.CreditCart;
 import com.example.furnitureworld.entity.Product;
 import com.example.furnitureworld.entity.ProductImage;
-import com.example.furnitureworld.entity.User;
 import com.example.furnitureworld.repository.CategoryRepository;
-import com.example.furnitureworld.repository.CreditCartRepository;
 import com.example.furnitureworld.repository.ProductImageRepository;
 import com.example.furnitureworld.repository.ProductRepository;
 import lombok.RequiredArgsConstructor;
