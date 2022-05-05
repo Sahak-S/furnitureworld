@@ -5,11 +5,13 @@
     <title>User Page </title>
 </head>
 
+
+
 <body>
 
-    <div th:if="${currentUser == null}">
-        <a href="/registerUser">Login</a>
-    </div>
+<!--    <div th:if="${currentUser == null}">-->
+<!--        <a href="/registerUser">Login</a>-->
+<!--    </div>-->
     <div th:if="${user != null}">
         Welcome <span th:text="${currentUser.user.name}"></span> <a href="/product">My product</a>
         <a href="/logout">Logout</a>

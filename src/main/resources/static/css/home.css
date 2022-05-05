@@ -1,0 +1,30 @@
+.bg {
+
+    /* The image used */
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 100% 100%;
+}
+
+.btn_sm{
+    margin-top: 10%;
+    margin-left: 80%;
+    padding: 11px;
+    background: transparent;
+    width:15em;
+    border: 2px solid #9e9696;
+    border-radius:20px;
+    border-color:white;
+    text-decoration: none;
+    color: black;
+    text-align: center;
+}
+
+.btn_sm:hover {
+    color:black;
+    background-color:black;
+    color:white;
+    transform: translateX(10%);
+    transition:0.8s;
+
+}

@@ -32,38 +32,39 @@ public class MainController {
         return "index";
     }
 
-//    @GetMapping("/addUser")
+//    @GetMapping("/login")
 //    public String register() {
 //        return "userPage";
 //    }
 
-//    @PostMapping("/login")
-//    public String loginPage(@AuthenticationPrincipal CurrentUser currentUser) {
-//        if (currentUser == null) {
-//            return "login";
-//        } else {
-//            return "userPage";
-//        }
-//    }
+    @PostMapping("/login")
+    public String loginPage(@AuthenticationPrincipal CurrentUser currentUser) {
+        if (currentUser == null) {
+            return "login";
+        } else {
+            return "userPage";
+        }
+    }
 
     @GetMapping  ("/admin")
     public String admin() {
         return "admin";
     }
 
-//    @GetMapping("/successLogin")
-//    public String successLogin(@AuthenticationPrincipal CurrentUser currentUser) {
-//        if (currentUser == null) {
-//            return "redirect:/";
-//        }
-//        User user = currentUser.getUser();
-//        if (user.getType() == UserType.ADMIN) {
-//            return "redirect:/admin";
-//        } else  {
-//            return "userPage";
-//        }
-//
-//    }
+    @GetMapping("/successLogin")
+    public String successLogin(@AuthenticationPrincipal CurrentUser currentUser) {
+        if (currentUser == null) {
+            return "redirect:/";
+        }
+        User user = currentUser.getUser();
+        if (user.getType() == UserType.ADMIN) {
+            return "redirect:/admin";
+        } else  {
+            return "userPage";
+        }
+
+    }
+
 
     @GetMapping(value = "/getImage", produces = MediaType.IMAGE_JPEG_VALUE)
     public @ResponseBody byte[] getImage(@RequestParam("picName") String picName) throws IOException {
